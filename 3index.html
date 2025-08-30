@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayla Securities - Premier Investment Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!-- Cool modern font -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f4f4f4, #ccc); /* Cooler gradient background */
+            color: #333; /* Dark grey text */
+            position: relative; /* For positioning money signs */
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #000, #333); /* Cooler black-grey gradient header */
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Deeper shadow */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3.5em; /* Bigger header */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        header p {
+            font-size: 1.5em;
+            margin-top: 10px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        nav {
+            background-color: #333; /* Dark grey nav */
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            color: #28a745; /* Green accent */
+            transform: scale(1.1); /* Zoom on hover */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto; /* Centered with more margin */
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* Cooler shadow */
+            border-radius: 20px; /* Rounded corners */
+        }
+        .section {
+            margin-bottom: 50px;
+            padding: 25px;
+            border-left: 6px solid #28a745; /* Thicker green accent */
+            transition: transform 0.3s;
+        }
+        .section:hover {
+            transform: translateX(15px); /* Slide on hover */
+        }
+        .section h2 {
+            border-bottom: 3px solid #28a745;
+            padding-bottom: 15px;
+            color: #000;
+            font-size: 2.2em;
+            animation: fadeIn 1s;
+        }
+        .joke-reveal {
+            display: none;
+            margin-top: 20px;
+            font-style: italic;
+            color: #28a745;
+            animation: bounceIn 0.5s;
+        }
+        .hover-trigger {
+            cursor: pointer;
+            display: inline-block;
+            font-size: 3em; /* Bigger money sign */
+            color: #28a745;
+            margin: 15px 0;
+            transition: transform 0.3s;
+        }
+        .hover-trigger:hover {
+            transform: rotate(15deg) scale(1.2); /* Cool rotate and scale on hover */
+        }
+        .hover-trigger:hover + .joke-reveal {
+            display: block;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 25px;
+        }
+        ul li {
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+        .money-sign {
+            position: absolute;
+            color: #28a745;
+            font-size: 5em; /* Way bigger money signs */
+            opacity: 0.25; /* Slightly more visible */
+            pointer-events: none;
+            animation: float 6s infinite ease-in-out; /* Floating animation */
+        }
+        /* More scattered money signs for cooler effect */
+        .money1 { top: 80px; left: 5%; animation-delay: 0s; }
+        .money2 { top: 180px; right: 8%; animation-delay: 1s; }
+        .money3 { bottom: 250px; left: 12%; animation-delay: 2s; }
+        .money4 { top: 350px; right: 15%; animation-delay: 0.5s; }
+        .money5 { bottom: 80px; left: 20%; animation-delay: 1.5s; }
+        .money6 { top: 500px; right: 5%; animation-delay: 2.5s; }
+        .money7 { bottom: 150px; left: 28%; animation-delay: 3s; }
+        .money8 { top: 700px; right: 12%; animation-delay: 0.2s; }
+        .money9 { top: 100px; left: 35%; animation-delay: 1.2s; }
+        .money10 { bottom: 300px; right: 25%; animation-delay: 2.2s; }
+        /* Water symbols */
+        .water-symbol {
+            color: #007bff;
+            font-size: 2em; /* Bigger water drops */
+            margin: 0 6px;
+            animation: drip 2s infinite;
+        }
+        footer {
+            background: linear-gradient(to right, #333, #555); /* Gradient footer */
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.3); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        @keyframes drip {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- More scattered green money signs for cooler background -->
+    <span class="money-sign money1">$</span>
+    <span class="money-sign money2">$</span>
+    <span class="money-sign money3">$</span>
+    <span class="money-sign money4">$</span>
+    <span class="money-sign money5">$</span>
+    <span class="money-sign money6">$</span>
+    <span class="money-sign money7">$</span>
+    <span class="money-sign money8">$</span>
+    <span class="money-sign money9">$</span>
+    <span class="money-sign money10">$</span>
+
+    <header>
+        <h1>Kayla Securities</h1>
+        <p></p> <!-- Added as subtitle -->
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#crypto">Crypto Investments</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <div id="home" class="section">
+            <h2>Breaking News that everyone should be aware of</h2>
+            <p>Kayla Securities has out paced the Merrill Lynch and Co.</p>
+            <span class="hover-trigger">$</span>
+            <p class="joke-reveal">yes</p>
+        </div>
+        
+        <div id="services" class="section">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Stock Picks: Hand-selected by our top best brightest and top secret super awesome investor.</li>
+            </ul>
+        </div>
+        
+        <div id="portfolio" class="section">
+            <h2>Our Impressive Portfolio</h2>
+            <p>We've invested in top-tier assets like:</p>
+            <ul>
+                <li>Tech Giants, Green Energy, Crypto</li>
+                <li class="hover-trigger" style="display: list-item; list-style-type: none;">$</li>
+                <li class="joke-reveal">yes</li>
+            </ul>
+        </div>
+        
+        <div id="crypto" class="section">
+            <h2>Crypto Investments</h2>
+            <p>Exclusive Crypto Offerings:</p>
+            <ul>
+                <li>KaylaCoin: Our flagship digital asset for innovative and brilliant investors.</li>
+                <li><span class="water-symbol">💧</span>WAPCoin<span class="water-symbol">💧</span>: wet <span class="water-symbol">💧</span><span class="water-symbol">💧</span></li>
+            </ul>
+        </div>
+        
+        <div id="contact" class="section">
+            <h2>Contact Us</h2>
+            <p>Ready to invest? Email us at info@kaylasecurities.wet or call our hotline: 1-800-KAYLA-IS-COOL (terms and conditions apply).</p>
+            <span class="hover-trigger">$</span>
+            <p class="joke-reveal">😎</p>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2025 Kayla Securities. All rights reserved.
+    </footer>
+    
+    <script>
+        // Fun alert on load (100% chance)
+        window.onload = function() {
+            if (Math.random() < 0.5) {
+                alert("Welcome to Kayla Securities! Our very real and professional stock company");
+            }
+        };
+    </script>
+</body>
+</html>
