@@ -28,7 +28,7 @@
             align-items: center;
             justify-content: center;
             z-index: 2000;
-            animation: fadeOut 1.5s ease forwards 6s;
+            animation: fadeOut 1.5s ease forwards 8s;
             cursor: pointer;
         }
         #splash-screen h1 {
@@ -42,7 +42,7 @@
             font-size: 3rem;
             color: #ffd700;
             text-shadow: 0 0 1rem #ff00cc;
-            animation: explode 3s ease-out forwards;
+            animation: explode 4s ease-out forwards;
             pointer-events: none;
         }
         @keyframes explode {
@@ -125,9 +125,18 @@
             margin-top: 0.3rem;
             text-shadow: 0 0 0.5rem #00ffcc;
         }
-        .header-decor, .money-sign, .sunglasses-sign {
-            position: fixed;
+        .header-decor {
+            position: absolute;
             font-size: 5rem;
+            opacity: 0.3;
+            pointer-events: none;
+            text-shadow: 0 0 1.5rem #00ffcc;
+            z-index: 1;
+            animation: float 6s infinite ease-in-out;
+        }
+        .money-sign, .sunglasses-sign {
+            position: fixed;
+            font-size: 6rem;
             opacity: 0.3;
             pointer-events: none;
             text-shadow: 0 0 1.5rem #00ffcc;
@@ -194,10 +203,10 @@
         .section {
             margin-bottom: 2rem;
             padding: 2rem;
-            background: rgba(0, 0, 0, 0.7);
-            border: 0.2rem solid #ff00cc;
+            background: rgba(0, 0, 0, 0.4);
+            border: 0.2rem solid #c0c0c0;
             border-radius: 1rem;
-            box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.4);
+            box-shadow: 0 0 1.5rem rgba(192, 192, 192, 0.4);
             backdrop-filter: blur(0.5rem);
         }
         .section h2 {
@@ -313,8 +322,11 @@
             header .subtitle {
                 font-size: 0.9rem;
             }
-            .header-decor, .money-sign, .sunglasses-sign {
+            .header-decor {
                 font-size: 3rem;
+            }
+            .money-sign, .sunglasses-sign {
+                font-size: 4rem;
             }
             nav {
                 padding: 1rem;
@@ -383,6 +395,26 @@
         <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.7s; --dx: 0.8; --dy: 0.4;">$</span>
         <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.8s; --dx: 0.4; --dy: 0.8;">$</span>
         <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.9s; --dx: 0.6; --dy: 0.2;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 2s; --dx: 0.55; --dy: 0.45;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 2.1s; --dx: 0.45; --dy: 0.55;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 2.2s; --dx: 0.7; --dy: 0.1;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 2.3s; --dx: 0.1; --dy: 0.7;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 2.4s; --dx: 0.9; --dy: 0.3;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 2.5s; --dx: 0.3; --dy: 0.9;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 2.6s; --dx: 0.8; --dy: 0.15;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 2.7s; --dx: 0.15; --dy: 0.8;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 2.8s; --dx: 0.65; --dy: 0.25;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 2.9s; --dx: 0.25; --dy: 0.65;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 3s; --dx: 0.85; --dy: 0.05;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 3.1s; --dx: 0.05; --dy: 0.85;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 3.2s; --dx: 0.75; --dy: 0.35;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 3.3s; --dx: 0.35; --dy: 0.75;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 3.4s; --dx: 0.6; --dy: 0.3;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 3.5s; --dx: 0.3; --dy: 0.6;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 3.6s; --dx: 0.7; --dy: 0.2;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 3.7s; --dx: 0.2; --dy: 0.7;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 3.8s; --dx: 0.8; --dy: 0.25;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 3.9s; --dx: 0.25; --dy: 0.8;">$</span>
     </div>
     <!-- Floating neon money signs and sunglasses emojis -->
     <span class="money-sign money1">$</span>
