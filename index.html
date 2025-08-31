@@ -10,12 +10,10 @@
             font-family: 'Orbitron', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1a0033, #0d1a4d, #ff00cc, #3333ff);
-            background-size: 400%;
+            background: linear-gradient(135deg, #1a0033, #0d1a4d);
             color: #fff;
             overflow-x: hidden;
             position: relative;
-            animation: cosmicPulse 10s ease infinite;
             min-height: 100vh;
         }
         #splash-screen {
@@ -30,7 +28,8 @@
             align-items: center;
             justify-content: center;
             z-index: 2000;
-            animation: fadeOut 1s ease forwards 3s;
+            animation: fadeOut 1.5s ease forwards 6s;
+            cursor: pointer;
         }
         #splash-screen h1 {
             font-size: 4rem;
@@ -43,12 +42,12 @@
             font-size: 3rem;
             color: #ffd700;
             text-shadow: 0 0 1rem #ff00cc;
-            animation: explode 2s ease-out forwards;
+            animation: explode 3s ease-out forwards;
             pointer-events: none;
         }
         @keyframes explode {
             0% { transform: translate(0, 0) scale(1); opacity: 1; }
-            100% { transform: translate(calc(50vw - 50%), calc(50vh - 50%)) scale(2); opacity: 0; }
+            100% { transform: translate(calc((var(--dx) * 100vw - 50%)), calc((var(--dy) * 100vh - 50%))) scale(2); opacity: 0; }
         }
         @keyframes fadeOut {
             0% { opacity: 1; }
@@ -102,14 +101,12 @@
         }
         header {
             background: linear-gradient(45deg, #ff00cc, #3333ff);
-            background-size: 300%;
             color: #fff;
             padding: 6rem 1rem;
             text-align: center;
-            box-shadow: 0 0 2rem rgba(255, 0, 204, 0.9);
+            box-shadow: 0 0 2rem rgba(255, 0, 204, 0.7);
             position: relative;
             z-index: 10;
-            animation: neonGlow 2s ease-in-out infinite alternate;
         }
         header h1 {
             margin: 0;
@@ -128,14 +125,14 @@
             margin-top: 0.3rem;
             text-shadow: 0 0 0.5rem #00ffcc;
         }
-        .header-decor, .money-sign, .sunglasses-sign, .cosmic-sign {
+        .header-decor, .money-sign, .sunglasses-sign {
             position: fixed;
             font-size: 5rem;
             opacity: 0.3;
             pointer-events: none;
             text-shadow: 0 0 1.5rem #00ffcc;
             z-index: 1;
-            animation: cosmicFloat 6s infinite ease-in-out, cosmicScale 4s infinite ease-in-out;
+            animation: float 6s infinite ease-in-out;
         }
         .decor1 { top: 1rem; left: 5%; animation-delay: 0s; }
         .decor2 { top: 2rem; right: 5%; animation-delay: 0.5s; }
@@ -163,179 +160,132 @@
         .sunglasses4 { top: 25%; left: 10%; animation-delay: 1.8s; }
         .sunglasses5 { top: 55%; right: 15%; animation-delay: 2.2s; }
         .sunglasses6 { top: 85%; left: 35%; animation-delay: 1.4s; }
-        .sunglasses7 { top: 35%; left: 60%; animation-delay: 0.4s; }
-        .sunglasses8 { top: 65%; right: 10%; animation-delay: 1.6s; }
-        .cosmic1 { top: 30%; left: 45%; animation-delay: 0.8s; }
-        .cosmic2 { top: 50%; right: 25%; animation-delay: 1.6s; }
-        .cosmic3 { top: 70%; left: 15%; animation-delay: 2.4s; }
-        .cosmic4 { top: 20%; right: 35%; animation-delay: 0.4s; }
-        .cosmic5 { top: 40%; left: 50%; animation-delay: 2.8s; }
-        .cosmic6 { top: 80%; right: 30%; animation-delay: 1.2s; }
         .money-sign { color: #00ccff; }
         .sunglasses-sign { color: #ffd700; }
-        .cosmic-sign { color: #ff00cc; }
         nav {
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.8);
             padding: 1.2rem;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.7);
-            animation: neonGlow 2s ease-in-out infinite alternate;
+            box-shadow: 0 0 1rem rgba(255, 0, 204, 0.5);
         }
         nav a {
             color: #ff00cc;
-            margin: 0 1.2rem;
+            margin: 0 1rem;
             text-decoration: none;
-            font-weight: 900;
-            font-size: 1.2rem;
-            text-shadow: 0 0 0.8rem #3333ff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-shadow: 0 0 0.5rem #3333ff;
             transition: all 0.3s ease;
         }
         nav a:hover {
             color: #00ffcc;
-            text-shadow: 0 0 1rem #00ffcc;
-            transform: scale(1.1);
-        }
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: #00ffcc;
-            transition: width 0.3s ease;
-        }
-        nav a:hover::after {
-            width: 100%;
+            text-shadow: 0 0 0.8rem #00ffcc;
         }
         .container {
             max-width: 90%;
-            margin: 3rem auto;
-            padding: 2rem;
+            margin: 2rem auto;
+            padding: 1.5rem;
             position: relative;
             z-index: 5;
         }
         .section {
-            margin-bottom: 3rem;
-            padding: 2.5rem;
-            background: rgba(0, 0, 0, 0.75);
-            border: 0.3rem solid #ff00cc;
-            border-radius: 1.2rem;
-            box-shadow: 0 0 2rem rgba(255, 0, 204, 0.6);
-            backdrop-filter: blur(1rem);
-            animation: neonGlow 3s ease-in-out infinite alternate;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            border: 0.2rem solid #ff00cc;
+            border-radius: 1rem;
+            box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.4);
+            backdrop-filter: blur(0.5rem);
         }
         .section h2 {
-            border-bottom: 0.3rem solid #00ffcc;
-            padding-bottom: 0.7rem;
+            border-bottom: 0.2rem solid #00ffcc;
+            padding-bottom: 0.5rem;
             color: #fff;
-            font-size: 2.2rem;
-            text-shadow: 0 0 1rem #ff00cc;
+            font-size: 2rem;
+            text-shadow: 0 0 0.8rem #ff00cc;
         }
         .section.white-text p, .section.white-text li {
             color: #fff;
-            text-shadow: 0 0 0.7rem #3333ff;
-            font-size: 1.2rem;
+            text-shadow: 0 0 0.5rem #3333ff;
+            font-size: 1.1rem;
         }
         .section.green-text p, .section.green-text li {
             color: #00ffcc;
-            text-shadow: 0 0 0.7rem #00ffcc;
-            font-size: 1.2rem;
+            text-shadow: 0 0 0.5rem #00ffcc;
+            font-size: 1.1rem;
         }
         .section.announcement p {
-            font-size: 1.4rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #ff00cc, #00ffcc, #3333ff);
-            background-size: 300%;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff00cc, #00ffcc);
             -webkit-background-clip: text;
             color: transparent;
-            text-shadow: 0 0 1rem #ff00cc, 0 0 2rem #00ffcc;
-            padding: 0.7rem;
-            border-radius: 0.7rem;
-            animation: cosmicPulse 5s ease infinite;
+            text-shadow: 0 0 0.8rem #ff00cc, 0 0 1.5rem #00ffcc;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
         }
         .joke-reveal {
             display: none;
-            margin-top: 1.2rem;
+            margin-top: 1rem;
             font-style: italic;
             color: #00ffcc;
-            text-shadow: 0 0 0.7rem #00ffcc;
-            font-size: 1.1rem;
+            text-shadow: 0 0 0.5rem #00ffcc;
+            font-size: 1rem;
         }
         .joke-reveal.white-text {
             color: #fff;
-            text-shadow: 0 0 0.7rem #3333ff;
+            text-shadow: 0 0 0.5rem #3333ff;
         }
         .money-line {
             display: block;
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: #ff00cc !important;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
             text-align: center;
-            text-shadow: 0 0 1.5rem #ff00cc, 0 0 3rem #3333ff;
-            letter-spacing: 0.7rem;
+            text-shadow: 0 0 1rem #ff00cc;
+            letter-spacing: 0.5rem;
+        }
+        .contact-info {
+            color: #00ff00;
+            text-shadow: 0 0 0.5rem #00ff00;
         }
         ul {
             list-style-type: none;
             padding-left: 0;
         }
         ul li {
-            margin: 1.2rem 0;
-            font-size: 1.2rem;
-            padding: 0.7rem;
-            border-radius: 0.7rem;
-            background: rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-        ul li:hover {
-            transform: scale(1.05);
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
         }
         .coin-symbol, .water-symbol {
             color: #ffd700;
-            font-size: 2rem;
-            margin: 0 0.4rem;
-            animation: spin 3s linear infinite;
+            font-size: 1.8rem;
+            margin: 0 0.3rem;
         }
         .water-symbol {
             color: #00ccff;
         }
         footer {
-            background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc);
-            background-size: 300%;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
             color: #fff;
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
             width: 100%;
-            box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.7);
-            text-shadow: 0 0 0.7rem #00ffcc;
-            animation: cosmicPulse 5s ease infinite;
+            box-shadow: 0 0 1rem rgba(255, 0, 204, 0.5);
+            text-shadow: 0 0 0.5rem #00ffcc;
             position: relative;
             z-index: 5;
         }
-        @keyframes cosmicPulse {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 400% 50%; }
-        }
-        @keyframes neonGlow {
-            0% { box-shadow: 0 0 1rem rgba(255, 0, 204, 0.5); }
-            100% { box-shadow: 0 0 2rem rgba(255, 0, 204, 1); }
-        }
-        @keyframes cosmicFloat {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-2rem) rotate(15deg); }
-            100% { transform: translateY(0) rotate(0deg); }
-        }
-        @keyframes cosmicScale {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-1.5rem); }
+            100% { transform: translateY(0); }
         }
         @media (max-width: 600px) {
             #splash-screen h1 {
@@ -363,40 +313,40 @@
             header .subtitle {
                 font-size: 0.9rem;
             }
-            .header-decor, .money-sign, .sunglasses-sign, .cosmic-sign {
+            .header-decor, .money-sign, .sunglasses-sign {
                 font-size: 3rem;
             }
             nav {
                 padding: 1rem;
             }
             nav a {
-                margin: 0 0.5rem;
-                font-size: 1rem;
+                margin: 0 0.4rem;
+                font-size: 0.9rem;
             }
             .container {
                 max-width: 95%;
-                padding: 1.2rem;
+                padding: 1rem;
             }
             .section {
-                padding: 1.5rem;
+                padding: 1.2rem;
             }
             .section h2 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             .section p, .section li {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
             .section.announcement p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             .money-line {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .coin-symbol, .water-symbol {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
             footer {
-                padding: 1.2rem;
+                padding: 1rem;
                 font-size: 0.9rem;
             }
         }
@@ -410,23 +360,31 @@
             <button onclick="closeModal()">Enter</button>
         </div>
     </div>
-    <!-- Splash screen with exploding money signs -->
-    <div id="splash-screen">
+    <!-- Splash screen with massive explosion of money signs -->
+    <div id="splash-screen" onclick="dismissSplash()">
         <h1>Welcome</h1>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0s;">$</span>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.1s; transform: rotate(45deg);">$</span>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.2s; transform: rotate(90deg);">$</span>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.3s; transform: rotate(135deg);">$</span>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.4s; transform: rotate(180deg);">$</span>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.5s; transform: rotate(225deg);">$</span>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.6s; transform: rotate(270deg);">$</span>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.7s; transform: rotate(315deg);">$</span>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.8s; transform: rotate(360deg);">$</span>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.9s; transform: rotate(30deg);">$</span>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1s; transform: rotate(60deg);">$</span>
-        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.1s; transform: rotate(120deg);">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0s; --dx: 0.5; --dy: 0.5;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.1s; --dx: 0.7; --dy: 0.3;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.2s; --dx: 0.3; --dy: 0.7;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.3s; --dx: 0.8; --dy: 0.2;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.4s; --dx: 0.2; --dy: 0.8;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.5s; --dx: 0.6; --dy: 0.4;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.6s; --dx: 0.4; --dy: 0.6;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.7s; --dx: 0.9; --dy: 0.1;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.8s; --dx: 0.1; --dy: 0.9;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 0.9s; --dx: 0.75; --dy: 0.25;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1s; --dx: 0.25; --dy: 0.75;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.1s; --dx: 0.85; --dy: 0.15;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.2s; --dx: 0.15; --dy: 0.85;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.3s; --dx: 0.65; --dy: 0.35;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.4s; --dx: 0.35; --dy: 0.65;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.5s; --dx: 0.95; --dy: 0.05;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.6s; --dx: 0.05; --dy: 0.95;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.7s; --dx: 0.8; --dy: 0.4;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.8s; --dx: 0.4; --dy: 0.8;">$</span>
+        <span class="money-explode" style="top: 50%; left: 50%; animation-delay: 1.9s; --dx: 0.6; --dy: 0.2;">$</span>
     </div>
-    <!-- Floating neon money signs, sunglasses, and cosmic emojis -->
+    <!-- Floating neon money signs and sunglasses emojis -->
     <span class="money-sign money1">$</span>
     <span class="money-sign money2">$</span>
     <span class="money-sign money3">$</span>
@@ -448,14 +406,6 @@
     <span class="sunglasses-sign sunglasses4">😎</span>
     <span class="sunglasses-sign sunglasses5">😎</span>
     <span class="sunglasses-sign sunglasses6">😎</span>
-    <span class="sunglasses-sign sunglasses7">😎</span>
-    <span class="sunglasses-sign sunglasses8">😎</span>
-    <span class="cosmic-sign cosmic1">🚀</span>
-    <span class="cosmic-sign cosmic2">⭐</span>
-    <span class="cosmic-sign cosmic3">🪐</span>
-    <span class="cosmic-sign cosmic4">🌌</span>
-    <span class="cosmic-sign cosmic5">💫</span>
-    <span class="cosmic-sign cosmic6">🌠</span>
 
     <header>
         <!-- Header wave and money symbols -->
@@ -511,7 +461,7 @@
         
         <div id="contact" class="section white-text">
             <h2>Contact Us</h2>
-            <p>Ready to invest? Email us at info@kaylasecurities.wet or call 1-800-KAYLA-IS-COOL.</p>
+            <p>Ready to invest? Email us at <span class="contact-info">info@kaylasecurities.wet</span> or call <span class="contact-info">1-800-KAYLA-IS-COOL</span>.</p>
             <span class="money-line">$$$$$$$$</span>
         </div>
     </div>
@@ -523,6 +473,9 @@
     <script>
         function closeModal() {
             document.getElementById('modal').style.display = 'none';
+        }
+        function dismissSplash() {
+            document.getElementById('splash-screen').style.animation = 'fadeOut 0.5s ease forwards';
         }
     </script>
 </body>
