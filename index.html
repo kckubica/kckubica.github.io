@@ -12,280 +12,186 @@
             padding: 0;
             background: linear-gradient(135deg, #1a0033, #0d1a4d);
             color: #fff;
-            position: relative;
             overflow-x: hidden;
-            animation: pulseBackground 10s infinite alternate;
         }
         header {
             background: linear-gradient(45deg, #ff00cc, #3333ff);
             color: #fff;
-            padding: 80px 20px;
+            padding: 5rem 1rem;
             text-align: center;
-            box-shadow: 0 0 30px rgba(255, 0, 204, 0.7);
-            position: relative;
-            z-index: 10;
-            animation: neonGlow 2s infinite alternate;
+            box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.7);
         }
         header h1 {
             margin: 0;
-            font-size: 4.5em;
+            font-size: 2.5rem;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 20px #ff00cc, 0 0 40px #3333ff;
-            animation: zoomIn 1.5s ease-in-out;
-            position: relative;
-            z-index: 2;
+            letter-spacing: 0.2rem;
+            text-shadow: 0 0 1rem #ff00cc, 0 0 2rem #3333ff;
         }
         header p {
-            font-size: 1.8em;
-            margin-top: 15px;
-            text-shadow: 0 0 15px #ff00cc;
-            animation: fadeIn 2s ease-in-out;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            text-shadow: 0 0 0.8rem #ff00cc;
         }
         header .subtitle {
-            font-size: 1.4em;
-            margin-top: 5px;
-            text-shadow: 0 0 10px #00ffcc;
+            font-size: 1rem;
+            margin-top: 0.3rem;
+            text-shadow: 0 0 0.5rem #00ffcc;
         }
-        .header-decor {
-            position: absolute;
-            font-size: 8em;
-            color: #00ffcc;
-            opacity: 0.2;
-            pointer-events: none;
-            animation: float 5s infinite ease-in-out;
-            text-shadow: 0 0 20px #00ffcc;
-            z-index: 1;
-        }
-        .decor1 { top: 20px; left: 5%; animation-delay: 0s; }
-        .decor2 { top: 40px; right: 5%; animation-delay: 0.5s; }
-        .decor3 { top: 60px; left: 20%; animation-delay: 1s; }
-        .decor4 { top: 80px; right: 20%; animation-delay: 1.5s; }
-        .decor5 { top: 100px; left: 35%; animation-delay: 2s; }
         nav {
             background: rgba(0, 0, 0, 0.8);
-            padding: 20px;
+            padding: 1rem;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 0 20px rgba(255, 0, 204, 0.5);
+            box-shadow: 0 0 1rem rgba(255, 0, 204, 0.5);
         }
         nav a {
             color: #ff00cc;
-            margin: 0 25px;
+            margin: 0 0.8rem;
             text-decoration: none;
-            font-weight: 900;
-            font-size: 1.2em;
-            text-shadow: 0 0 10px #3333ff;
+            font-weight: 700;
+            font-size: 1rem;
+            text-shadow: 0 0 0.5rem #3333ff;
             transition: all 0.3s ease;
         }
         nav a:hover {
             color: #00ffcc;
-            transform: scale(1.2) rotate(5deg);
-            text-shadow: 0 0 15px #00ffcc;
+            text-shadow: 0 0 0.8rem #00ffcc;
         }
         .container {
-            max-width: 1400px;
-            margin: 50px auto;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 30px;
-            box-shadow: 0 0 40px rgba(255, 0, 204, 0.4);
-            backdrop-filter: blur(10px);
+            max-width: 95%;
+            margin: 2rem auto;
+            padding: 1rem;
         }
         .section {
-            margin-bottom: 60px;
-            padding: 30px;
-            border-left: 8px solid #ff00cc;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.7);
+            border: 0.2rem solid #ff00cc; /* Pink border around sections */
+            border-radius: 1rem;
+            box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.4);
+            backdrop-filter: blur(0.5rem);
         }
         .section h2 {
-            border-bottom: 4px solid #00ffcc;
-            padding-bottom: 15px;
+            border-bottom: 0.2rem solid #00ffcc;
+            padding-bottom: 0.5rem;
             color: #fff;
-            font-size: 2.5em;
-            text-shadow: 0 0 15px #ff00cc;
-            animation: fadeIn 1.2s;
+            font-size: 1.8rem;
+            text-shadow: 0 0 0.8rem #ff00cc;
         }
         .section.white-text p, .section.white-text li {
             color: #fff;
-            text-shadow: 0 0 10px #3333ff;
+            text-shadow: 0 0 0.5rem #3333ff;
+            font-size: 1rem;
         }
         .section.green-text p, .section.green-text li {
             color: #00ffcc;
-            text-shadow: 0 0 10px #00ffcc;
+            text-shadow: 0 0 0.5rem #00ffcc;
+            font-size: 1rem;
         }
         .section.announcement p {
-            font-size: 1.8em;
+            font-size: 1.2rem;
             font-weight: 700;
             background: linear-gradient(45deg, #ff00cc, #00ffcc);
             -webkit-background-clip: text;
             color: transparent;
-            text-shadow: 0 0 15px #ff00cc, 0 0 30px #00ffcc;
-            padding: 10px;
-            border-radius: 10px;
-            animation: pulseText 1.5s infinite alternate;
+            text-shadow: 0 0 0.8rem #ff00cc, 0 0 1.5rem #00ffcc;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
         }
         .joke-reveal {
             display: none;
-            margin-top: 25px;
+            margin-top: 1rem;
             font-style: italic;
             color: #00ffcc;
-            text-shadow: 0 0 10px #00ffcc;
-            animation: bounceIn 0.6s;
+            text-shadow: 0 0 0.5rem #00ffcc;
+            font-size: 0.9rem;
         }
         .joke-reveal.white-text {
             color: #fff;
-            text-shadow: 0 0 10px #3333ff;
+            text-shadow: 0 0 0.5rem #3333ff;
         }
         .money-line {
             display: block;
-            font-size: 4em;
-            color: #ff00cc !important; /* Ensure pink color */
-            margin: 20px 0;
+            font-size: 2rem;
+            color: #ff00cc !important;
+            margin: 1rem 0;
             text-align: center;
-            text-shadow: 0 0 20px #ff00cc;
-            letter-spacing: 10px;
+            text-shadow: 0 0 1rem #ff00cc;
+            letter-spacing: 0.5rem;
         }
         ul {
             list-style-type: none;
             padding-left: 0;
         }
         ul li {
-            margin: 20px 0;
-            font-size: 1.3em;
-            padding: 10px;
-            border-radius: 10px;
+            margin: 1rem 0;
+            font-size: 1rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
             background: rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s;
         }
-        ul li:hover {
-            transform: translateY(-5px);
-        }
-        .money-sign, .sunglasses-sign {
-            position: absolute;
-            font-size: 6em;
-            opacity: 0.3;
-            pointer-events: none;
-            animation: float 5s infinite ease-in-out;
-            text-shadow: 0 0 20px #00ccff;
-        }
-        .money-sign { color: #00ccff; } /* Changed to cyan to avoid confusion with pink */
-        .sunglasses-sign { color: #ffd700; }
-        .money1 { top: 10%; left: 5%; animation-delay: 0s; }
-        .money2 { top: 20%; right: 10%; animation-delay: 0.5s; }
-        .money3 { top: 30%; left: 15%; animation-delay: 1s; }
-        .money4 { top: 40%; right: 20%; animation-delay: 1.5s; }
-        .money5 { top: 50%; left: 25%; animation-delay: 2s; }
-        .money6 { top: 60%; right: 15%; animation-delay: 2.5s; }
-        .money7 { top: 70%; left: 30%; animation-delay: 3s; }
-        .money8 { top: 80%; right: 25%; animation-delay: 0.3s; }
-        .money9 { top: 25%; left: 35%; animation-delay: 1.3s; }
-        .money10 { top: 35%; right: 30%; animation-delay: 2.3s; }
-        .money11 { top: 45%; left: 40%; animation-delay: 0.7s; }
-        .money12 { top: 55%; right: 35%; animation-delay: 1.7s; }
-        .money13 { top: 65%; left: 20%; animation-delay: 2.7s; }
-        .money14 { top: 75%; right: 40%; animation-delay: 0.9s; }
-        .money15 { top: 85%; left: 10%; animation-delay: 1.9s; }
-        .sunglasses1 { top: 15%; left: 50%; animation-delay: 1.2s; }
-        .sunglasses2 { top: 45%; right: 45%; animation-delay: 2.4s; }
-        .sunglasses3 { top: 75%; left: 55%; animation-delay: 0.6s; }
         .coin-symbol {
             color: #ffd700;
-            font-size: 2.5em;
-            margin: 0 8px;
-            animation: spin 2s infinite linear;
+            font-size: 1.5rem;
+            margin: 0 0.3rem;
         }
         .water-symbol {
             color: #00ccff;
-            font-size: 2.5em;
-            margin: 0 8px;
-            animation: drip 1.5s infinite;
+            font-size: 1.5rem;
+            margin: 0 0.3rem;
         }
         footer {
             background: linear-gradient(45deg, #ff00cc, #3333ff);
             color: #fff;
             text-align: center;
-            padding: 20px;
-            position: fixed;
+            padding: 1rem;
             width: 100%;
-            bottom: 0;
-            box-shadow: 0 0 20px rgba(255, 0, 204, 0.5);
-            text-shadow: 0 0 10px #00ffcc;
+            box-shadow: 0 0 1rem rgba(255, 0, 204, 0.5);
+            text-shadow: 0 0 0.5rem #00ffcc;
         }
+        /* Simplified animations for mobile */
         @keyframes pulseBackground {
             0% { background: linear-gradient(135deg, #1a0033, #0d1a4d); }
             100% { background: linear-gradient(135deg, #0d1a4d, #1a0033); }
         }
         @keyframes neonGlow {
-            0% { box-shadow: 0 0 20px rgba(255, 0, 204, 0.5); }
-            100% { box-shadow: 0 0 40px rgba(255, 0, 204, 0.8); }
+            0% { box-shadow: 0 0 1rem rgba(255, 0, 204, 0.5); }
+            100% { box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.8); }
         }
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes bounceIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            50% { transform: scale(1.4); opacity: 1; }
-            100% { transform: scale(1); }
-        }
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(10deg); }
-            100% { transform: translateY(0) rotate(0deg); }
-        }
-        @keyframes drip {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-            100% { transform: translateY(0); }
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        @keyframes pulseText {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
+        /* Media query for smaller screens */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            header .subtitle {
+                font-size: 0.9rem;
+            }
+            nav a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            .section p, .section li {
+                font-size: 0.9rem;
+            }
+            .money-line {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- More scattered neon money signs and sunglasses emojis -->
-    <span class="money-sign money1">$</span>
-    <span class="money-sign money2">$</span>
-    <span class="money-sign money3">$</span>
-    <span class="money-sign money4">$</span>
-    <span class="money-sign money5">$</span>
-    <span class="money-sign money6">$</span>
-    <span class="money-sign money7">$</span>
-    <span class="money-sign money8">$</span>
-    <span class="money-sign money9">$</span>
-    <span class="money-sign money10">$</span>
-    <span class="money-sign money11">$</span>
-    <span class="money-sign money12">$</span>
-    <span class="money-sign money13">$</span>
-    <span class="money-sign money14">$</span>
-    <span class="money-sign money15">$</span>
-    <span class="sunglasses-sign sunglasses1">😎</span>
-    <span class="sunglasses-sign sunglasses2">😎</span>
-    <span class="sunglasses-sign sunglasses3">😎</span>
-
     <header>
-        <span class="header-decor decor1">$</span>
-        <span class="header-decor decor2">$</span>
-        <span class="header-decor decor3">🌊</span>
-        <span class="header-decor decor4">🌊</span>
-        <span class="header-decor decor5">$</span>
         <h1>Kayla Securities</h1>
         <p class="subtitle">Top Hedge Fund for Elite Investments</p>
-        <p></p>
     </header>
     
     <nav>
@@ -298,9 +204,9 @@
     
     <div class="container">
         <div id="home" class="section white-text announcement">
-            <h2>Breaking News that everyone should be aware of</h2>
-            <p>Kayla Securities has out paced the Merrill Lynch and Co.</p>
-            <p>Kayla Securities top hedge fund in Royal Oak by far</p>
+            <h2>Breaking News</h2>
+            <p>Kayla Securities has outpaced Merrill Lynch and Co.</p>
+            <p>Kayla Securities: Top hedge fund in Royal Oak</p>
             <span class="money-line">$$$$</span>
             <p class="joke-reveal">yes</p>
         </div>
@@ -308,7 +214,7 @@
         <div id="services" class="section green-text">
             <h2>Our Services</h2>
             <p>Stock Picks</p>
-            <p class="white-text">Hand-selected by our top best brightest and top secret super awesome investor.</p>
+            <p class="white-text">Hand-selected by our top secret, super awesome investor.</p>
             <span class="money-line">$$$$</span>
         </div>
         
@@ -317,7 +223,7 @@
             <p>We've invested in top-tier assets like:</p>
             <ul>
                 <li class="white-text">Tech Giants, Green Energy, Crypto</li>
-                <li class="money-line" style="display: list-item; list-style-type: none; color: #ff00cc !important;">$$$$</li>
+                <li class="money-line" style="display: list-item; list-style-type: none;">$$$$</li>
                 <li class="joke-reveal white-text">yes</li>
             </ul>
         </div>
@@ -326,14 +232,14 @@
             <h2>Crypto Investments</h2>
             <p>Exclusive Crypto Offerings:</p>
             <ul>
-                <li><span class="coin-symbol">🪙</span>KaylaCoin<span class="coin-symbol">🪙</span>: Our flagship digital asset for innovative and brilliant investors.</li>
-                <li><span class="water-symbol">💧</span>WAPCoin<span class="water-symbol">💧</span>: wet <span class="water-symbol">💧</span><span class="water-symbol">💧</span></li>
+                <li><span class="coin-symbol">🪙</span>KaylaCoin<span class="coin-symbol">🪙</span>: Our flagship digital asset.</li>
+                <li><span class="water-symbol">💧</span>WAPCoin<span class="water-symbol">💧</span>: Innovative crypto solution.</li>
             </ul>
         </div>
         
         <div id="contact" class="section white-text">
             <h2>Contact Us</h2>
-            <p>Ready to invest? Email us at info@kaylasecurities.wet or call our hotline: 1-800-KAYLA-IS-COOL (terms and conditions apply)*Kayla Securities is not a real company*.</p>
+            <p>Ready to invest? Email us at info@kaylasecurities.wet or call 1-800-KAYLA-IS-COOL (terms apply)*Kayla Securities is not real*.</p>
             <span class="money-line">$$$$</span>
             <p class="joke-reveal">😎</p>
         </div>
