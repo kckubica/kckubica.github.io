@@ -4,169 +4,260 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kayla Securities - Premier Investment Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!-- Cool modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #f4f4f4, #ccc); /* Cooler gradient background */
-            color: #333; /* Dark grey text */
-            position: relative; /* For positioning money signs */
+            background: linear-gradient(135deg, #1a0033, #0d1a4d);
+            color: #fff;
+            position: relative;
             overflow-x: hidden;
+            animation: pulseBackground 10s infinite alternate;
         }
         header {
-            background: linear-gradient(to right, #000, #333); /* Cooler black-grey gradient header */
-            color: white;
-            padding: 60px 20px;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            color: #fff;
+            padding: 80px 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Deeper shadow */
+            box-shadow: 0 0 30px rgba(255, 0, 204, 0.7);
+            position: relative;
+            z-index: 10;
+            animation: neonGlow 2s infinite alternate;
         }
         header h1 {
             margin: 0;
-            font-size: 3.5em; /* Bigger header */
+            font-size: 4.5em;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: fadeIn 1s ease-in-out;
+            letter-spacing: 5px;
+            text-shadow: 0 0 20px #ff00cc, 0 0 40px #3333ff;
+            animation: zoomIn 1.5s ease-in-out;
+            position: relative;
+            z-index: 2;
         }
         header p {
-            font-size: 1.5em;
-            margin-top: 10px;
-            animation: fadeIn 1.5s ease-in-out;
+            font-size: 1.8em;
+            margin-top: 15px;
+            text-shadow: 0 0 15px #ff00cc;
+            animation: fadeIn 2s ease-in-out;
         }
+        header .subtitle {
+            font-size: 1.4em;
+            margin-top: 5px;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+        .header-decor {
+            position: absolute;
+            font-size: 8em;
+            color: #00ffcc;
+            opacity: 0.2;
+            pointer-events: none;
+            animation: float 5s infinite ease-in-out;
+            text-shadow: 0 0 20px #00ffcc;
+            z-index: 1;
+        }
+        .decor1 { top: 20px; left: 5%; animation-delay: 0s; }
+        .decor2 { top: 40px; right: 5%; animation-delay: 0.5s; }
+        .decor3 { top: 60px; left: 20%; animation-delay: 1s; }
+        .decor4 { top: 80px; right: 20%; animation-delay: 1.5s; }
+        .decor5 { top: 100px; left: 35%; animation-delay: 2s; }
         nav {
-            background-color: #333; /* Dark grey nav */
-            padding: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 0 20px rgba(255, 0, 204, 0.5);
         }
         nav a {
-            color: white;
-            margin: 0 20px;
+            color: #ff00cc;
+            margin: 0 25px;
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s, transform 0.3s;
+            font-weight: 900;
+            font-size: 1.2em;
+            text-shadow: 0 0 10px #3333ff;
+            transition: all 0.3s ease;
         }
         nav a:hover {
-            color: #28a745; /* Green accent */
-            transform: scale(1.1); /* Zoom on hover */
+            color: #00ffcc;
+            transform: scale(1.2) rotate(5deg);
+            text-shadow: 0 0 15px #00ffcc;
         }
         .container {
-            max-width: 1200px;
-            margin: 40px auto; /* Centered with more margin */
-            padding: 30px;
-            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* Cooler shadow */
-            border-radius: 20px; /* Rounded corners */
+            max-width: 1400px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 30px;
+            box-shadow: 0 0 40px rgba(255, 0, 204, 0.4);
+            backdrop-filter: blur(10px);
         }
         .section {
-            margin-bottom: 50px;
-            padding: 25px;
-            border-left: 6px solid #28a745; /* Thicker green accent */
-            transition: transform 0.3s;
-        }
-        .section:hover {
-            transform: translateX(15px); /* Slide on hover */
+            margin-bottom: 60px;
+            padding: 30px;
+            border-left: 8px solid #ff00cc;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
         }
         .section h2 {
-            border-bottom: 3px solid #28a745;
+            border-bottom: 4px solid #00ffcc;
             padding-bottom: 15px;
-            color: #000;
-            font-size: 2.2em;
-            animation: fadeIn 1s;
+            color: #fff;
+            font-size: 2.5em;
+            text-shadow: 0 0 15px #ff00cc;
+            animation: fadeIn 1.2s;
+        }
+        .section.white-text p, .section.white-text li {
+            color: #fff;
+            text-shadow: 0 0 10px #3333ff;
+        }
+        .section.green-text p, .section.green-text li {
+            color: #00ffcc;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+        .section.announcement p {
+            font-size: 1.8em;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff00cc, #00ffcc);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px #ff00cc, 0 0 30px #00ffcc;
+            padding: 10px;
+            border-radius: 10px;
+            animation: pulseText 1.5s infinite alternate;
         }
         .joke-reveal {
             display: none;
-            margin-top: 20px;
+            margin-top: 25px;
             font-style: italic;
-            color: #28a745;
-            animation: bounceIn 0.5s;
+            color: #00ffcc;
+            text-shadow: 0 0 10px #00ffcc;
+            animation: bounceIn 0.6s;
         }
-        .hover-trigger {
-            cursor: pointer;
-            display: inline-block;
-            font-size: 3em; /* Bigger money sign */
-            color: #28a745;
-            margin: 15px 0;
-            transition: transform 0.3s;
+        .joke-reveal.white-text {
+            color: #fff;
+            text-shadow: 0 0 10px #3333ff;
         }
-        .hover-trigger:hover {
-            transform: rotate(15deg) scale(1.2); /* Cool rotate and scale on hover */
-        }
-        .hover-trigger:hover + .joke-reveal {
+        .money-line {
             display: block;
+            font-size: 4em;
+            color: #ff00cc !important; /* Ensure pink color */
+            margin: 20px 0;
+            text-align: center;
+            text-shadow: 0 0 20px #ff00cc;
+            letter-spacing: 10px;
         }
         ul {
-            list-style-type: disc;
-            padding-left: 25px;
+            list-style-type: none;
+            padding-left: 0;
         }
         ul li {
-            margin: 15px 0;
-            font-size: 1.2em;
+            margin: 20px 0;
+            font-size: 1.3em;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s;
         }
-        .money-sign {
+        ul li:hover {
+            transform: translateY(-5px);
+        }
+        .money-sign, .sunglasses-sign {
             position: absolute;
-            color: #28a745;
-            font-size: 5em; /* Way bigger money signs */
-            opacity: 0.25; /* Slightly more visible */
+            font-size: 6em;
+            opacity: 0.3;
             pointer-events: none;
-            animation: float 6s infinite ease-in-out; /* Floating animation */
+            animation: float 5s infinite ease-in-out;
+            text-shadow: 0 0 20px #00ccff;
         }
-        /* More scattered money signs for cooler effect */
-        .money1 { top: 80px; left: 5%; animation-delay: 0s; }
-        .money2 { top: 180px; right: 8%; animation-delay: 1s; }
-        .money3 { bottom: 250px; left: 12%; animation-delay: 2s; }
-        .money4 { top: 350px; right: 15%; animation-delay: 0.5s; }
-        .money5 { bottom: 80px; left: 20%; animation-delay: 1.5s; }
-        .money6 { top: 500px; right: 5%; animation-delay: 2.5s; }
-        .money7 { bottom: 150px; left: 28%; animation-delay: 3s; }
-        .money8 { top: 700px; right: 12%; animation-delay: 0.2s; }
-        .money9 { top: 100px; left: 35%; animation-delay: 1.2s; }
-        .money10 { bottom: 300px; right: 25%; animation-delay: 2.2s; }
-        /* Water symbols */
+        .money-sign { color: #00ccff; } /* Changed to cyan to avoid confusion with pink */
+        .sunglasses-sign { color: #ffd700; }
+        .money1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .money2 { top: 20%; right: 10%; animation-delay: 0.5s; }
+        .money3 { top: 30%; left: 15%; animation-delay: 1s; }
+        .money4 { top: 40%; right: 20%; animation-delay: 1.5s; }
+        .money5 { top: 50%; left: 25%; animation-delay: 2s; }
+        .money6 { top: 60%; right: 15%; animation-delay: 2.5s; }
+        .money7 { top: 70%; left: 30%; animation-delay: 3s; }
+        .money8 { top: 80%; right: 25%; animation-delay: 0.3s; }
+        .money9 { top: 25%; left: 35%; animation-delay: 1.3s; }
+        .money10 { top: 35%; right: 30%; animation-delay: 2.3s; }
+        .money11 { top: 45%; left: 40%; animation-delay: 0.7s; }
+        .money12 { top: 55%; right: 35%; animation-delay: 1.7s; }
+        .money13 { top: 65%; left: 20%; animation-delay: 2.7s; }
+        .money14 { top: 75%; right: 40%; animation-delay: 0.9s; }
+        .money15 { top: 85%; left: 10%; animation-delay: 1.9s; }
+        .sunglasses1 { top: 15%; left: 50%; animation-delay: 1.2s; }
+        .sunglasses2 { top: 45%; right: 45%; animation-delay: 2.4s; }
+        .sunglasses3 { top: 75%; left: 55%; animation-delay: 0.6s; }
+        .coin-symbol {
+            color: #ffd700;
+            font-size: 2.5em;
+            margin: 0 8px;
+            animation: spin 2s infinite linear;
+        }
         .water-symbol {
-            color: #007bff;
-            font-size: 2em; /* Bigger water drops */
-            margin: 0 6px;
-            animation: drip 2s infinite;
+            color: #00ccff;
+            font-size: 2.5em;
+            margin: 0 8px;
+            animation: drip 1.5s infinite;
         }
         footer {
-            background: linear-gradient(to right, #333, #555); /* Gradient footer */
-            color: white;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            color: #fff;
             text-align: center;
-            padding: 15px;
+            padding: 20px;
             position: fixed;
             width: 100%;
             bottom: 0;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 0 20px rgba(255, 0, 204, 0.5);
+            text-shadow: 0 0 10px #00ffcc;
         }
-        /* Animations */
+        @keyframes pulseBackground {
+            0% { background: linear-gradient(135deg, #1a0033, #0d1a4d); }
+            100% { background: linear-gradient(135deg, #0d1a4d, #1a0033); }
+        }
+        @keyframes neonGlow {
+            0% { box-shadow: 0 0 20px rgba(255, 0, 204, 0.5); }
+            100% { box-shadow: 0 0 40px rgba(255, 0, 204, 0.8); }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-30px); }
+            from { opacity: 0; transform: translateY(-40px); }
             to { opacity: 1; transform: translateY(0); }
         }
         @keyframes bounceIn {
             0% { transform: scale(0.5); opacity: 0; }
-            50% { transform: scale(1.3); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 1; }
             100% { transform: scale(1); }
         }
         @keyframes float {
             0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
             100% { transform: translateY(0) rotate(0deg); }
         }
         @keyframes drip {
             0% { transform: translateY(0); }
-            50% { transform: translateY(5px); }
+            50% { transform: translateY(10px); }
             100% { transform: translateY(0); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulseText {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
         }
     </style>
 </head>
 <body>
-    <!-- More scattered green money signs for cooler background -->
+    <!-- More scattered neon money signs and sunglasses emojis -->
     <span class="money-sign money1">$</span>
     <span class="money-sign money2">$</span>
     <span class="money-sign money3">$</span>
@@ -177,10 +268,24 @@
     <span class="money-sign money8">$</span>
     <span class="money-sign money9">$</span>
     <span class="money-sign money10">$</span>
+    <span class="money-sign money11">$</span>
+    <span class="money-sign money12">$</span>
+    <span class="money-sign money13">$</span>
+    <span class="money-sign money14">$</span>
+    <span class="money-sign money15">$</span>
+    <span class="sunglasses-sign sunglasses1">😎</span>
+    <span class="sunglasses-sign sunglasses2">😎</span>
+    <span class="sunglasses-sign sunglasses3">😎</span>
 
     <header>
+        <span class="header-decor decor1">$</span>
+        <span class="header-decor decor2">$</span>
+        <span class="header-decor decor3">🌊</span>
+        <span class="header-decor decor4">🌊</span>
+        <span class="header-decor decor5">$</span>
         <h1>Kayla Securities</h1>
-        <p></p> <!-- Added as subtitle -->
+        <p class="subtitle">Top Hedge Fund for Elite Investments</p>
+        <p></p>
     </header>
     
     <nav>
@@ -192,43 +297,44 @@
     </nav>
     
     <div class="container">
-        <div id="home" class="section">
+        <div id="home" class="section white-text announcement">
             <h2>Breaking News that everyone should be aware of</h2>
             <p>Kayla Securities has out paced the Merrill Lynch and Co.</p>
-            <span class="hover-trigger">$</span>
+            <p>Kayla Securities top hedge fund in royal oak by far</p>
+            <span class="money-line">$$$$$$$</span>
             <p class="joke-reveal">yes</p>
         </div>
         
-        <div id="services" class="section">
+        <div id="services" class="section green-text">
             <h2>Our Services</h2>
-            <ul>
-                <li>Stock Picks: Hand-selected by our top best brightest and top secret super awesome investor.</li>
-            </ul>
+            <p>Stock Picks</p>
+            <p class="white-text">Hand-selected by our top best brightest and top secret super awesome investor.</p>
+            <span class="money-line">$$$$$$$</span>
         </div>
         
-        <div id="portfolio" class="section">
+        <div id="portfolio" class="section green-text">
             <h2>Our Impressive Portfolio</h2>
             <p>We've invested in top-tier assets like:</p>
             <ul>
-                <li>Tech Giants, Green Energy, Crypto</li>
-                <li class="hover-trigger" style="display: list-item; list-style-type: none;">$</li>
-                <li class="joke-reveal">yes</li>
+                <li class="white-text">Tech Giants, Green Energy, Crypto</li>
+                <li class="money-line" style="display: list-item; list-style-type: none; color: #ff00cc !important;">$$$$$$$</li>
+                <li class="joke-reveal white-text">yes</li>
             </ul>
         </div>
         
-        <div id="crypto" class="section">
+        <div id="crypto" class="section green-text">
             <h2>Crypto Investments</h2>
             <p>Exclusive Crypto Offerings:</p>
             <ul>
-                <li>KaylaCoin: Our flagship digital asset for innovative and brilliant investors.</li>
+                <li><span class="coin-symbol">🪙</span>KaylaCoin<span class="coin-symbol">🪙</span>: Our flagship digital asset for innovative and brilliant investors.</li>
                 <li><span class="water-symbol">💧</span>WAPCoin<span class="water-symbol">💧</span>: wet <span class="water-symbol">💧</span><span class="water-symbol">💧</span></li>
             </ul>
         </div>
         
-        <div id="contact" class="section">
+        <div id="contact" class="section white-text">
             <h2>Contact Us</h2>
             <p>Ready to invest? Email us at info@kaylasecurities.wet or call our hotline: 1-800-KAYLA-IS-COOL (terms and conditions apply)*Kayla Securities is not a real company*.</p>
-            <span class="hover-trigger">$</span>
+            <span class="money-line">$$$$$$$</span>
             <p class="joke-reveal">😎</p>
         </div>
     </div>
@@ -238,7 +344,6 @@
     </footer>
     
     <script>
-        // Fun alert on load (100% chance)
         window.onload = function() {
             if (Math.random() < 1.0) {
                 alert("Welcome to Kayla Securities! Our very real and professional stock company");
