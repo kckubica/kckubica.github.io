@@ -13,6 +13,7 @@
             background: linear-gradient(135deg, #1a0033, #0d1a4d);
             color: #fff;
             overflow-x: hidden;
+            position: relative;
         }
         header {
             background: linear-gradient(45deg, #ff00cc, #3333ff);
@@ -20,6 +21,8 @@
             padding: 5rem 1rem;
             text-align: center;
             box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.7);
+            position: relative;
+            z-index: 10;
         }
         header h1 {
             margin: 0;
@@ -38,6 +41,21 @@
             margin-top: 0.3rem;
             text-shadow: 0 0 0.5rem #00ffcc;
         }
+        .header-decor {
+            position: absolute;
+            font-size: 4rem;
+            color: #00ffcc;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: float 5s infinite ease-in-out;
+            text-shadow: 0 0 1rem #00ffcc;
+            z-index: 1;
+        }
+        .decor1 { top: 1rem; left: 5%; animation-delay: 0s; }
+        .decor2 { top: 2rem; right: 5%; animation-delay: 0.5s; }
+        .decor3 { top: 3rem; left: 20%; animation-delay: 1s; }
+        .decor4 { top: 4rem; right: 20%; animation-delay: 1.5s; }
+        .decor5 { top: 5rem; left: 35%; animation-delay: 2s; }
         nav {
             background: rgba(0, 0, 0, 0.8);
             padding: 1rem;
@@ -133,6 +151,35 @@
             border-radius: 0.5rem;
             background: rgba(255, 255, 255, 0.05);
         }
+        .money-sign, .sunglasses-sign {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: float 5s infinite ease-in-out;
+            text-shadow: 0 0 1rem #00ccff;
+            z-index: 5;
+        }
+        .money-sign { color: #00ccff; }
+        .sunglasses-sign { color: #ffd700; }
+        .money1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .money2 { top: 20%; right: 10%; animation-delay: 0.5s; }
+        .money3 { top: 30%; left: 15%; animation-delay: 1s; }
+        .money4 { top: 40%; right: 20%; animation-delay: 1.5s; }
+        .money5 { top: 50%; left: 25%; animation-delay: 2s; }
+        .money6 { top: 60%; right: 15%; animation-delay: 2.5s; }
+        .money7 { top: 70%; left: 30%; animation-delay: 3s; }
+        .money8 { top: 80%; right: 25%; animation-delay: 0.3s; }
+        .money9 { top: 25%; left: 35%; animation-delay: 1.3s; }
+        .money10 { top: 35%; right: 30%; animation-delay: 2.3s; }
+        .money11 { top: 45%; left: 40%; animation-delay: 0.7s; }
+        .money12 { top: 55%; right: 35%; animation-delay: 1.7s; }
+        .money13 { top: 65%; left: 20%; animation-delay: 2.7s; }
+        .money14 { top: 75%; right: 40%; animation-delay: 0.9s; }
+        .money15 { top: 85%; left: 10%; animation-delay: 1.9s; }
+        .sunglasses1 { top: 15%; left: 50%; animation-delay: 1.2s; }
+        .sunglasses2 { top: 45%; right: 45%; animation-delay: 2.4s; }
+        .sunglasses3 { top: 75%; left: 55%; animation-delay: 0.6s; }
         .coin-symbol {
             color: #ffd700;
             font-size: 1.5rem;
@@ -152,7 +199,6 @@
             box-shadow: 0 0 1rem rgba(255, 0, 204, 0.5);
             text-shadow: 0 0 0.5rem #00ffcc;
         }
-        /* Simplified animations for mobile */
         @keyframes pulseBackground {
             0% { background: linear-gradient(135deg, #1a0033, #0d1a4d); }
             100% { background: linear-gradient(135deg, #0d1a4d, #1a0033); }
@@ -161,7 +207,11 @@
             0% { box-shadow: 0 0 1rem rgba(255, 0, 204, 0.5); }
             100% { box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.8); }
         }
-        /* Media query for smaller screens */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-1rem); }
+            100% { transform: translateY(0); }
+        }
         @media (max-width: 600px) {
             header h1 {
                 font-size: 2rem;
@@ -171,6 +221,9 @@
             }
             header .subtitle {
                 font-size: 0.9rem;
+            }
+            .header-decor {
+                font-size: 3rem;
             }
             nav a {
                 margin: 0 0.5rem;
@@ -185,11 +238,40 @@
             .money-line {
                 font-size: 1.5rem;
             }
+            .money-sign, .sunglasses-sign {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Floating neon money signs and sunglasses emojis -->
+    <span class="money-sign money1">$</span>
+    <span class="money-sign money2">$</span>
+    <span class="money-sign money3">$</span>
+    <span class="money-sign money4">$</span>
+    <span class="money-sign money5">$</span>
+    <span class="money-sign money6">$</span>
+    <span class="money-sign money7">$</span>
+    <span class="money-sign money8">$</span>
+    <span class="money-sign money9">$</span>
+    <span class="money-sign money10">$</span>
+    <span class="money-sign money11">$</span>
+    <span class="money-sign money12">$</span>
+    <span class="money-sign money13">$</span>
+    <span class="money-sign money14">$</span>
+    <span class="money-sign money15">$</span>
+    <span class="sunglasses-sign sunglasses1">😎</span>
+    <span class="sunglasses-sign sunglasses2">😎</span>
+    <span class="sunglasses-sign sunglasses3">😎</span>
+
     <header>
+        <!-- Header wave and money symbols -->
+        <span class="header-decor decor1">$</span>
+        <span class="header-decor decor2">$</span>
+        <span class="header-decor decor3">🌊</span>
+        <span class="header-decor decor4">🌊</span>
+        <span class="header-decor decor5">$</span>
         <h1>Kayla Securities</h1>
         <p class="subtitle">Top Hedge Fund for Elite Investments</p>
     </header>
