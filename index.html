@@ -4,164 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kayla Securities</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Black+Ops+One&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Orbitron', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1a0033, #0d1a4d);
+            background: linear-gradient(135deg, #0d0033, #1a004d, #ff00cc, #00ffcc);
+            background-size: 400%;
             color: #fff;
             overflow-x: hidden;
             position: relative;
+            animation: cosmicPulse 15s ease infinite;
+        }
+        canvas#particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
         }
         header {
-            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc);
+            background-size: 300%;
             color: #fff;
-            padding: 6rem 1rem;
+            padding: 7rem 1rem;
             text-align: center;
-            box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.7);
+            box-shadow: 0 0 2rem rgba(255, 0, 204, 0.9);
             position: relative;
             z-index: 10;
+            animation: neonGlow 2s ease-in-out infinite alternate;
         }
         header h1 {
             margin: 0;
-            font-size: 3.5rem;
+            font-family: 'Black Ops One', sans-serif;
+            font-size: 4rem;
             text-transform: uppercase;
-            letter-spacing: 0.3rem;
-            text-shadow: 0 0 1rem #ff00cc, 0 0 2rem #3333ff;
+            letter-spacing: 0.4rem;
+            text-shadow: 0 0 1.5rem #ff00cc, 0 0 3rem #3333ff, 0 0 5rem #00ffcc;
+            transform: perspective(500px) rotateX(15deg);
+            animation: glitch 3s infinite;
         }
         header p {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             margin-top: 0.5rem;
-            text-shadow: 0 0 0.8rem #ff00cc;
+            text-shadow: 0 0 1rem #ff00cc, 0 0 2rem #3333ff;
         }
         header .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-top: 0.3rem;
-            text-shadow: 0 0 0.5rem #00ffcc;
+            text-shadow: 0 0 0.8rem #00ffcc;
+            animation: scanline 5s linear infinite;
         }
-        .header-decor {
+        .header-decor, .money-sign, .sunglasses-sign, .cosmic-sign {
             position: absolute;
             font-size: 5rem;
-            color: #00ffcc;
-            opacity: 0.3;
+            opacity: 0.4;
             pointer-events: none;
-            animation: float 5s infinite ease-in-out;
-            text-shadow: 0 0 1rem #00ffcc;
+            text-shadow: 0 0 1.5rem #00ffcc;
             z-index: 1;
+            animation: cosmicFloat 6s infinite ease-in-out, cosmicScale 4s infinite ease-in-out;
         }
         .decor1 { top: 1rem; left: 5%; animation-delay: 0s; }
         .decor2 { top: 2rem; right: 5%; animation-delay: 0.5s; }
         .decor3 { top: 3rem; left: 20%; animation-delay: 1s; }
         .decor4 { top: 4rem; right: 20%; animation-delay: 1.5s; }
         .decor5 { top: 5rem; left: 35%; animation-delay: 2s; }
-        nav {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 0 1rem rgba(255, 0, 204, 0.5);
-        }
-        nav a {
-            color: #ff00cc;
-            margin: 0 1rem;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-shadow: 0 0 0.5rem #3333ff;
-            transition: all 0.3s ease;
-        }
-        nav a:hover {
-            color: #00ffcc;
-            text-shadow: 0 0 0.8rem #00ffcc;
-        }
-        .container {
-            max-width: 90%;
-            margin: 2rem auto;
-            padding: 1.5rem;
-        }
-        .section {
-            margin-bottom: 2rem;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.7);
-            border: 0.2rem solid #ff00cc;
-            border-radius: 1rem;
-            box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.4);
-            backdrop-filter: blur(0.5rem);
-        }
-        .section h2 {
-            border-bottom: 0.2rem solid #00ffcc;
-            padding-bottom: 0.5rem;
-            color: #fff;
-            font-size: 2rem;
-            text-shadow: 0 0 0.8rem #ff00cc;
-        }
-        .section.white-text p, .section.white-text li {
-            color: #fff;
-            text-shadow: 0 0 0.5rem #3333ff;
-            font-size: 1.1rem;
-        }
-        .section.green-text p, .section.green-text li {
-            color: #00ffcc;
-            text-shadow: 0 0 0.5rem #00ffcc;
-            font-size: 1.1rem;
-        }
-        .section.announcement p {
-            font-size: 1.3rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, #ff00cc, #00ffcc);
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 0.8rem #ff00cc, 0 0 1.5rem #00ffcc;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-        }
-        .joke-reveal {
-            display: none;
-            margin-top: 1rem;
-            font-style: italic;
-            color: #00ffcc;
-            text-shadow: 0 0 0.5rem #00ffcc;
-            font-size: 1rem;
-        }
-        .joke-reveal.white-text {
-            color: #fff;
-            text-shadow: 0 0 0.5rem #3333ff;
-        }
-        .money-line {
-            display: block;
-            font-size: 2.5rem;
-            color: #ff00cc !important;
-            margin: 1rem 0;
-            text-align: center;
-            text-shadow: 0 0 1rem #ff00cc;
-            letter-spacing: 0.5rem;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        ul li {
-            margin: 1rem 0;
-            font-size: 1.1rem;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            background: rgba(255, 255, 255, 0.05);
-        }
-        .money-sign, .sunglasses-sign {
-            position: absolute;
-            font-size: 4rem;
-            opacity: 0.3;
-            pointer-events: none;
-            animation: float 5s infinite ease-in-out;
-            text-shadow: 0 0 1rem #00ccff;
-            z-index: 5;
-        }
-        .money-sign { color: #00ccff; }
-        .sunglasses-sign { color: #ffd700; }
         .money1 { top: 10%; left: 5%; animation-delay: 0s; }
         .money2 { top: 20%; right: 10%; animation-delay: 0.5s; }
         .money3 { top: 30%; left: 15%; animation-delay: 1s; }
@@ -170,7 +80,7 @@
         .money6 { top: 60%; right: 15%; animation-delay: 2.5s; }
         .money7 { top: 70%; left: 30%; animation-delay: 3s; }
         .money8 { top: 80%; right: 25%; animation-delay: 0.3s; }
-        .money9 { top: 25%; left: 35%; animation-delay: 1.3s; }
+        .money9 { top: 25%; leftẬ: 35%; animation-delay: 1.3s; }
         .money10 { top: 35%; right: 30%; animation-delay: 2.3s; }
         .money11 { top: 45%; left: 40%; animation-delay: 0.7s; }
         .money12 { top: 55%; right: 35%; animation-delay: 1.7s; }
@@ -183,95 +93,249 @@
         .sunglasses4 { top: 25%; left: 10%; animation-delay: 1.8s; }
         .sunglasses5 { top: 55%; right: 15%; animation-delay: 2.2s; }
         .sunglasses6 { top: 85%; left: 35%; animation-delay: 1.4s; }
-        .coin-symbol {
+        .cosmic1 { top: 30%; left: 45%; animation-delay: 0.8s; }
+        .cosmic2 { top: 50%; right: 25%; animation-delay: 1.6s; }
+        .cosmic3 { top: 70%; left: 15%; animation-delay: 2.4s; }
+        .cosmic4 { top: 20%; right: 35%; animation-delay: 0.4s; }
+        .money-sign { color: #00ccff; }
+        .sunglasses-sign { color: #ffd700; }
+        .cosmic-sign { color: #ff00cc; }
+        nav {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 1.2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.7);
+            animation: neonGlow 2s ease-in-out infinite alternate;
+        }
+        nav a {
+            color: #ff00cc;
+            margin: 0 1.2rem;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-shadow: 0 0 0.8rem #3333ff;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        nav a:hover {
+            color: #00ffcc;
+            text-shadow: 0 0 1rem #00ffcc;
+            transform: scale(1.1);
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: #00ffcc;
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        .container {
+            max-width: 90%;
+            margin: 3rem auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 5;
+        }
+        .section {
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background: rgba(0, 0, 0, 0.75);
+            border: 0.3rem solid #ff00cc;
+            border-radius: 1.2rem;
+            box-shadow: 0 0 2rem rgba(255, 0, 204, 0.6);
+            backdrop-filter: blur(1rem);
+            animation: neonGlow 3s ease-in-out infinite alternate;
+            transform: perspective(1000px) translateZ(0);
+            transition: transform 0.5s ease;
+        }
+        .section:hover {
+            transform: perspective(1000px) translateZ(20px);
+        }
+        .section h2 {
+            border-bottom: 0.3rem solid #00ffcc;
+            padding-bottom: 0.7rem;
+            color: #fff;
+            font-size: 2.2rem;
+            text-shadow: 0 0 1rem #ff00cc;
+            animation: glitch 4s infinite;
+        }
+        .section.white-text p, .section.white-text li {
+            color: #fff;
+            text-shadow: 0 0 0.7rem #3333ff;
+            font-size: 1.2rem;
+        }
+        .section.green-text p, .section.green-text li {
+            color: #00ffcc;
+            text-shadow: 0 0 0.7rem #00ffcc;
+            font-size: 1.2rem;
+        }
+        .section.announcement p {
+            font-size: 1.4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff00cc, #00ffcc, #3333ff);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 1rem #ff00cc, 0 0 2rem #00ffcc;
+            padding: 0.7rem;
+            border-radius: 0.7rem;
+            animation: cosmicPulse 5s ease infinite;
+        }
+        .joke-reveal {
+            display: none;
+            margin-top: 1.2rem;
+            font-style: italic;
+            color: #00ffcc;
+            text-shadow: 0 0 0.7rem #00ffcc;
+            font-size: 1.1rem;
+        }
+        .joke-reveal.white-text {
+            color: #fff;
+            text-shadow: 0 0 0.7rem #3333ff;
+        }
+        .money-line {
+            display: block;
+            font-size: 3rem;
+            color: #ff00cc !important;
+            margin: 1.5rem 0;
+            text-align: center;
+            text-shadow: 0 0 1.5rem #ff00cc, 0 0 3rem #3333ff;
+            letter-spacing: 0.7rem;
+            animation: glitch 2s infinite;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin: 1.2rem 0;
+            font-size: 1.2rem;
+            padding: 0.7rem;
+            border-radius: 0.7rem;
+            background: rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        ul li:hover {
+            transform: scale(1.05);
+        }
+        .coin-symbol, .water-symbol {
             color: #ffd700;
-            font-size: 1.8rem;
-            margin: 0 0.3rem;
+            font-size: 2rem;
+            margin: 0 0.4rem;
+            animation: spin 3s linear infinite;
         }
         .water-symbol {
             color: #00ccff;
-            font-size: 1.8rem;
-            margin: 0 0.3rem;
         }
         footer {
-            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc);
+            background-size: 300%;
             color: #fff;
             text-align: center;
-            padding: 1.5rem;
+            padding: 2rem;
             width: 100%;
-            box-shadow: 0 0 1rem rgba(255, 0, 204, 0.5);
-            text-shadow: 0 0 0.5rem #00ffcc;
+            box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.7);
+            text-shadow: 0 0 0.7rem #00ffcc;
+            animation: cosmicPulse 5s ease infinite;
         }
-        @keyframes pulseBACKGROUND {
-            0% { background: linear-gradient(135deg, #1a0033, #0d1a4d); }
-            100% { background: linear-gradient(135deg, #0d1a4d, #1a0033); }
+        @keyframes cosmicPulse {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 400% 50%; }
         }
         @keyframes neonGlow {
             0% { box-shadow: 0 0 1rem rgba(255, 0, 204, 0.5); }
-            100% { box-shadow: 0 0 1.5rem rgba(255, 0, 204, 0.8); }
+            100% { box-shadow: 0 0 2rem rgba(255, 0, 204, 1); }
         }
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-1rem); }
-            100% { transform: translateY(0); }
+        @keyframes cosmicFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-1.5rem) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        @keyframes cosmicScale {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         @media (max-width: 600px) {
             header {
-                padding: 4rem 0.5rem;
+                padding: 5rem 0.8rem;
             }
             header h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             header p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             header .subtitle {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
-            .header-decor {
-                font-size: 3.5rem;
+            .header-decor, .money-sign, .sunglasses-sign, .cosmic-sign {
+                font-size: 3rem;
             }
             nav {
-                padding: 0.8rem;
+                padding: 1rem;
             }
             nav a {
-                margin: 0 0.4rem;
-                font-size: 0.9rem;
+                margin: 0 0.5rem;
+                font-size: 1rem;
             }
             .container {
                 max-width: 95%;
-                padding: 1rem;
-            }
-            .section {
                 padding: 1.2rem;
             }
+            .section {
+                padding: 1.5rem;
+            }
             .section h2 {
-                font-size: 1.6rem;
-            }
-            .section p, .section li {
-                font-size: 0.95rem;
-            }
-            .section.announcement p {
-                font-size: 1.1rem;
-            }
-            .money-line {
                 font-size: 1.8rem;
             }
-            .money-sign, .sunglasses-sign {
-                font-size: 2.5rem;
+            .section p, .section li {
+                font-size: 1rem;
             }
-            .coin-symbol, .water-symbol {
+            .section.announcement p {
                 font-size: 1.2rem;
             }
+            .money-line {
+                font-size: 2rem;
+            }
+            .coin-symbol, .water-symbol {
+                font-size: 1.4rem;
+            }
             footer {
-                padding: 1rem;
-                font-size: 0.9rem;
+                padding: 1.2rem;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Floating neon money signs and sunglasses emojis -->
+    <canvas id="particle-canvas"></canvas>
+    <!-- Floating neon money signs, sunglasses, and cosmic emojis -->
     <span class="money-sign money1">$</span>
     <span class="money-sign money2">$</span>
     <span class="money-sign money3">$</span>
@@ -293,6 +357,10 @@
     <span class="sunglasses-sign sunglasses4">😎</span>
     <span class="sunglasses-sign sunglasses5">😎</span>
     <span class="sunglasses-sign sunglasses6">😎</span>
+    <span class="cosmic-sign cosmic1">🚀</span>
+    <span class="cosmic-sign cosmic2">⭐</span>
+    <span class="cosmic-sign cosmic3">🪐</span>
+    <span class="cosmic-sign cosmic4">🌌</span>
 
     <header>
         <!-- Header wave and money symbols -->
@@ -358,6 +426,82 @@
     </footer>
     
     <script>
+        // Particle system for sparkling effect
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 5 + 2;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+                this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.1;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < 100; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let particle of particles) {
+                particle.update();
+                particle.draw();
+                if (particle.size <= 0.2) {
+                    particles.splice(particles.indexOf(particle), 1);
+                    particles.push(new Particle());
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        initParticles();
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Mouse interaction for particles
+        let mouseX = 0, mouseY = 0;
+        canvas.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            for (let i = 0; i < 5; i++) {
+                particles.push(new Particle());
+            }
+        });
+
+        canvas.addEventListener('touchmove', (e) => {
+            mouseX = e.touches[0].clientX;
+            mouseY = e.touches[0].clientY;
+            for (let i = 0; i < 5; i++) {
+                particles.push(new Particle());
+            }
+        });
+
         window.onload = function() {
             if (Math.random() < 1.0) {
                 alert("Welcome to Kayla Securities! Top Elite Hedge Fund");
